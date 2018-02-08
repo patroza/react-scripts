@@ -230,15 +230,6 @@ module.exports = {
                 },
               },
             ],
-            // loader: ExtractTextPlugin.extract(
-            //   Object.assign(
-            //     {
-            //       fallback: require.resolve('isomorphic-style-loader'),
-            //       use:
-            //     },
-            //     extractTextPluginOptions
-            //   )
-            // ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
           },
           // "file" loader makes sure assets end up in the `build` folder.
