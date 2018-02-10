@@ -8,7 +8,6 @@
 // @remove-on-eject-end
 'use strict';
 
-const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -202,7 +201,10 @@ module.exports = {
                   plugins: () => [
                     require('postcss-global-import'),
                     require('postcss-flexbugs-fixes'),
-                    autoprefixer({
+                    require('postcss-import'),
+                    // postcss-cssnext includes autoprefixer
+                    // we pass the react-scripts autoprefixer configuration on to cssnext instead
+                    require('postcss-cssnext')({
                       browsers: [
                         '>1%',
                         'last 4 versions',
@@ -211,8 +213,6 @@ module.exports = {
                       ],
                       flexbox: 'no-2009',
                     }),
-                    require('postcss-import'),
-                    require('postcss-cssnext')(),
                   ],
                 },
               },
